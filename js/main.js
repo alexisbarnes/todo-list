@@ -7,23 +7,37 @@ new Vue({
   methods: {
     addItem() {
       // alert('adding content.');
+      if (this.editingItem) {
+        //update items content
+        this.editingItem.title = this.newTitle;
+        this.editingItem.content = this.newContent;
+
+      } else {
       this.items.push({
         title: this.newTitle,
         content: this.newContent
-      })
+      });
+    }
 
-      this.newTitle = '',
-      this.newContent = ''
+      this.cancelItem();
     },
     cancelItem() {
+      this.editingItem = null;
       this.newTitle = '',
       this.newContent = ''
     },
     removeItem(i) {
       this.items.splice(i, 1);
+
     },
-    editTask() {
+
+    //create a temp placeholder, which can be referenced later to update the item and populate the input fields with the current items values
+    editTask(i) {
       // this.title = this.items.title && this.items.title.trim();
+      this.editingItem = i
+      this.newTitle = i.title
+      this.newContent = i.content
+
     }
 
 
@@ -31,6 +45,7 @@ new Vue({
   data: {
     newTitle: '',
     newContent: '',
+    editingItem: null,
     items: [
       {
       title: 'Todo Item Title',

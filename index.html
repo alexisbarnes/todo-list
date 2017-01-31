@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <div id="app" class="container">
+    <div id="app" class="container" v-cloak>
 
       <div class="column is-half is-offset-one-quarter content">
 
@@ -22,20 +22,20 @@
               <p> {{item.content}} </p>
             </div>
             <footer class="card-footer">
-              <a class="card-footer-item" @click="editTask">Edit</a>
+              <a class="card-footer-item" @click="editTask(item)">Edit</a>
               <a class="card-footer-item" @click="removeItem(index)">Done</a>
             </footer>
           </div>
         </section>
 
         <section>
-          <label class="label">New Todo</label>
+          <label class="label">{{ editingItem? 'Edit Todo' : 'New Todo' }}</label>
           <div class="control is-grouped">
             <div class="control is-expanded">
               <input type="text" class="input" placeholder="Todo Item Title" v-model="newTitle" />
             </div>
             <div class="control">
-              <a class="button is-primary" @click="addItem">Create</a>
+              <a class="button is-primary" @click="addItem">{{ editingItem? 'Update' : 'Create' }}</a>
             </div>
           </div>
           <div class="control">
