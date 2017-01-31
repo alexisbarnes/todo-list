@@ -5,8 +5,23 @@
 new Vue({
   el: '#app',
   methods: {
+    addItem() {
+      // alert('adding content.');
+      this.titles.push(this.newTitle);
+      this.contents.push(this.newContent);
+
+      this.newTitle = 'Todo Item Title',
+      this.newContent = 'Todo item content'
+    }
+
   },
   data: {
-
+    newTitle: '',
+    newContent: '',
+    titles: ['Title'],
+    contents: ['Content']
+  },
+  mounted() {
+    // alert('ready');
   }
 });
