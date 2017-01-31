@@ -14,12 +14,12 @@
       <div class="column is-half is-offset-one-quarter content">
 
         <section>
-          <div class="card">
+          <div class="card" v-for="title in titles">
             <div class="card-header">
-              <p class="card-header-title" v-for="title in titles" v-text="title">Title</p>
+              <p class="card-header-title"v-text="title"></p>
             </div>
             <div class="card-content">
-              <p v-for="content in contents" v-text="content"> Content </p>
+              <p v-for="content in contents" v-text="content"></p>
             </div>
             <footer class="card-footer">
               <a class="card-footer-item">Edit</a>

@@ -14,12 +14,13 @@ new Vue({
       this.newContent = 'Todo item content'
     }
 
+
   },
   data: {
     newTitle: '',
     newContent: '',
-    titles: ['Title'],
-    contents: ['Content']
+    titles: [],
+    contents: []
   },
   mounted() {
     // alert('ready');
