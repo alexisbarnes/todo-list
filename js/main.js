@@ -12,8 +12,8 @@ new Vue({
         content: this.newContent
       })
 
-      this.newTitle = 'Todo Item Title',
-      this.newContent = 'Todo item content'
+      this.newTitle = '',
+      this.newContent = ''
     },
     cancelItem() {
       this.newTitle = '',
