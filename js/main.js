@@ -7,11 +7,23 @@ new Vue({
   methods: {
     addItem() {
       // alert('adding content.');
-      this.titles.push(this.newTitle);
-      this.contents.push(this.newContent);
+      this.items.push({
+        title: this.newTitle,
+        content: this.newContent
+      })
 
       this.newTitle = 'Todo Item Title',
       this.newContent = 'Todo item content'
+    },
+    cancelItem() {
+      this.newTitle = '',
+      this.newContent = ''
+    },
+    removeItem(i) {
+      this.items.splice(i, 1);
+    },
+    editTask() {
+      // this.title = this.items.title && this.items.title.trim();
     }
 
 
@@ -19,8 +31,12 @@ new Vue({
   data: {
     newTitle: '',
     newContent: '',
-    titles: [],
-    contents: []
+    items: [
+      {
+      title: 'Todo Item Title',
+      content: 'Todo Item Content'
+    }
+  ]
   },
   mounted() {
     // alert('ready');

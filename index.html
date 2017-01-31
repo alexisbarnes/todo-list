@@ -14,16 +14,16 @@
       <div class="column is-half is-offset-one-quarter content">
 
         <section>
-          <div class="card" v-for="title in titles">
+          <div class="card" v-for="(item, index) in items">
             <div class="card-header">
-              <p class="card-header-title"v-text="title"></p>
+              <p class="card-header-title"> {{ item.title }}</p>
             </div>
             <div class="card-content">
-              <p v-for="content in contents" v-text="content"></p>
+              <p> {{item.content}} </p>
             </div>
             <footer class="card-footer">
-              <a class="card-footer-item">Edit</a>
-              <a class="card-footer-item">Done</a>
+              <a class="card-footer-item" @click="editTask">Edit</a>
+              <a class="card-footer-item" @click="removeItem(index)">Done</a>
             </footer>
           </div>
         </section>
@@ -35,7 +35,7 @@
               <input type="text" class="input" placeholder="Todo Item Title" v-model="newTitle" />
             </div>
             <div class="control">
-              <a class="button is-primary" v-on:click="addItem">Create</a>
+              <a class="button is-primary" @click="addItem">Create</a>
             </div>
           </div>
           <div class="control">
@@ -43,7 +43,7 @@
           </div>
           <div class="control">
             <!-- this should only be visible if we are editing -->
-            <a class="button">Cancel</a>
+            <a class="button" @click="cancelItem">Cancel</a>
           </div>
         </section>
 
